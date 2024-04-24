@@ -1,14 +1,11 @@
 package model;
 
-public class ReservationRestaurant {
-	private int jour;
-	private int mois;
+public class ReservationRestaurant extends Reservation {
 	private int numero_service;
 	private int numero_table;
 	
 	public ReservationRestaurant(int jour, int mois, int numero_service, int numero_table) {
-		this.jour = jour;
-		this.mois = mois;
+		super(jour, mois);
 		this.numero_service = numero_service;
 		this.numero_table = numero_table;
 	}
@@ -18,6 +15,6 @@ public class ReservationRestaurant {
 		if (numero_service == 2) {
 			ieme_service = "deuxième";
 		}
-		return "Le " + jour + "/" + mois + " : table n°" + numero_table + " pour le " + ieme_service + " service.";
+		return super.toString() + "Table " + numero_table + " pour le " + ieme_service + " service.";
 	}
 }
